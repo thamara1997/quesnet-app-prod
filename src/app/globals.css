@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ecf8fc;
+  --darkblue: #0a7685;
+  --lightblue: #0fbbd3;
+  --gray: #b6b6b6;
+  --white: #fff;
+}
+
+body {
+  background-color: var(--background);
+}
+
+.shadowBack {
+  box-shadow: 0 1rem 3rem hsl(0 10% 0% / 20%);
+}
+
+.buttonDarkBlue {
+  background-color: var(--background);
+  border-radius: 10px;
+  padding: 5px 20px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: var(--lightblue);
+}
+
+.buttonDarkBlue:hover {
+  background-color: var(--darkblue);
+  border-radius: 10px;
+  padding: 5px 20px;
+  align-items: center;
+  display: flex;
+  color: #ecf8fc;
+}
+
+.buttonOutlineDarkBlue {
+  background-color: var(--background);
+  border-radius: 100px;
+  border-width: 1px;
+  border-color: #0a778589;
+  padding: 5px 20px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: var(--lightblue);
+}
+
+.buttonOutlineDarkBlue:hover {
+  background-color: var(--darkblue);
+  border-radius: 100px;
+  border-width: 2px;
+  border-color: #ffffff;
+  padding: 5px 20px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: var(--background);
+}
