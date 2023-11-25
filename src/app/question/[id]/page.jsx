@@ -35,7 +35,7 @@ const QuestionPage = (ctx) => {
     async function fetchAnswers() {
       try {
         const res = await fetch(
-          `http://localhost:3000/api/answer/${ctx.params.id}`,
+          `https://quesnet-app-prod-v1.vercel.app/api/answer/${ctx.params.id}`,
           { cache: "no-store" }
         );
         const answers = await res.json();
@@ -54,7 +54,7 @@ const QuestionPage = (ctx) => {
   useEffect(() => {
     async function fetchQuestion() {
       const res = await fetch(
-        `http://localhost:3000/api/question/${ctx.params.id}`,
+        `https://quesnet-app-prod-v1.vercel.app/api/question/${ctx.params.id}`,
         { cache: "no-store" }
       );
       const ques = await res.json();
@@ -74,7 +74,7 @@ const QuestionPage = (ctx) => {
 
       if (confirmModal) {
         const res = await fetch(
-          `http://localhost:3000/api/question/${ctx.params.id}`,
+          `https://quesnet-app-prod-v1.vercel.app/api/question/${ctx.params.id}`,
           {
             headers: {
               Authorization: `Bearer ${session?.user?.accessToken}`,
@@ -98,7 +98,7 @@ const QuestionPage = (ctx) => {
   const handleLike = async () => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/question/${ctx.params.id}/like`,
+        `https://quesnet-app-prod-v1.vercel.app/api/question/${ctx.params.id}/like`,
         {
           headers: {
             Authorization: `Bearer ${session?.user?.accessToken}`,
@@ -132,14 +132,17 @@ const QuestionPage = (ctx) => {
 
       //console.log(body);
 
-      const res = await fetch(`http://localhost:3000/api/answer`, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${session?.user?.accessToken}`,
-        },
-        method: "POST",
-        body: JSON.stringify(body),
-      });
+      const res = await fetch(
+        `https://quesnet-app-prod-v1.vercel.app/api/answer`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${session?.user?.accessToken}`,
+          },
+          method: "POST",
+          body: JSON.stringify(body),
+        }
+      );
 
       const newAnswer = await res.json();
 

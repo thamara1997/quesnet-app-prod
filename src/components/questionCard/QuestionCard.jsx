@@ -24,7 +24,7 @@ const QuestionCard = ({
   const handleLike = async () => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/question/${_id}/like`,
+        `https://quesnet-app-prod-v1.vercel.app/api/question/${_id}/like`,
         {
           headers: {
             Authorization: `Bearer ${session?.user?.accessToken}`,

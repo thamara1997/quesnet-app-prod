@@ -39,7 +39,7 @@ const EditQuestion = (ctx) => {
   useEffect(() => {
     async function fetchQuestion() {
       const res = await fetch(
-        `http://localhost:3000/api/question/${ctx.params.id}`
+        `https://quesnet-app-prod-v1.vercel.app/api/question/${ctx.params.id}`
       );
 
       const question = await res.json();
@@ -102,7 +102,7 @@ const EditQuestion = (ctx) => {
       }
 
       const res = await fetch(
-        `http://localhost:3000/api/question/${ctx.params.id}`,
+        `https://quesnet-app-prod-v1.vercel.app/api/question/${ctx.params.id}`,
         {
           headers: {
             "Content-Type": "application/json",

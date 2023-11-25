@@ -61,24 +61,27 @@ const CreateQuestion = () => {
     try {
       const imageUrl = await uploadImage();
 
-      const res = await fetch("http://localhost:3000/api/question", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${session?.user?.accessToken}`,
-        },
-        body: JSON.stringify({
-          quesType,
-          question,
-          imageUrl,
-          category,
-          answer1,
-          answer2,
-          answer3,
-          answer4,
-          authorId: session?.user?._id,
-        }),
-      });
+      const res = await fetch(
+        "https://quesnet-app-prod-v1.vercel.app/api/question",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${session?.user?.accessToken}`,
+          },
+          body: JSON.stringify({
+            quesType,
+            question,
+            imageUrl,
+            category,
+            answer1,
+            answer2,
+            answer3,
+            answer4,
+            authorId: session?.user?._id,
+          }),
+        }
+      );
 
       console.log(res);
 

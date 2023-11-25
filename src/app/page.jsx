@@ -14,15 +14,18 @@ export default function Home() {
   useEffect(() => {
     async function fetchQuestions() {
       try {
-        const res = await fetch("http://localhost:3000/api/question", {
-          method: "GET", // You can change the method based on your API route
-          headers: {
-            // Include any custom headers if needed
-            "Content-Type": "application/json",
-            // Add more headers as needed
-          },
-          cache: "no-store",
-        });
+        const res = await fetch(
+          "https://quesnet-app-prod-v1.vercel.app/api/question",
+          {
+            method: "GET", // You can change the method based on your API route
+            headers: {
+              // Include any custom headers if needed
+              "Content-Type": "application/json",
+              // Add more headers as needed
+            },
+            cache: "no-store",
+          }
+        );
         const questions = await res.json();
 
         setQuestions(questions);

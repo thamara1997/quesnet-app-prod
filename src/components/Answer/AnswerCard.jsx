@@ -14,12 +14,15 @@ const AnswerCard = ({ answer, setAnswers }) => {
 
   const handleDeleteAnswer = async () => {
     try {
-      await fetch(`http://localhost:3000/api/answer/${answer?._id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        method: "DELETE",
-      });
+      await fetch(
+        `https://quesnet-app-prod-v1.vercel.app/api/answer/${answer?._id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          method: "DELETE",
+        }
+      );
 
       setAnswers((prev) => {
         return [...prev].filter((c) => c?._id !== answer?._id);

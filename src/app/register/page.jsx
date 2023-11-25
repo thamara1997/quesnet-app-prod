@@ -37,18 +37,21 @@ const Register = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:3000/api/register", {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-        body: JSON.stringify({
-          firstname,
-          lastname,
-          email,
-          password,
-        }),
-      });
+      const res = await fetch(
+        "https://quesnet-app-prod-v1.vercel.app/api/register",
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          method: "POST",
+          body: JSON.stringify({
+            firstname,
+            lastname,
+            email,
+            password,
+          }),
+        }
+      );
       console.log(await res.json());
 
       if (res.ok) {
